@@ -370,79 +370,84 @@
         }
       }
       /* ===== Модальное окно ===== */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s ease;
-}
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.92);
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+      }
 
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 16px;
-    box-shadow: 0 0 40px rgba(255, 77, 77, 0.3);
-    display: block;
-    object-fit: contain;
-}
+      .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 16px;
+        box-shadow: 0 0 40px rgba(255, 77, 77, 0.3);
+        display: block;
+        object-fit: contain;
+      }
 
-.modal-close {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: #fff;
-    font-size: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s;
-    line-height: 1;
-}
+      .modal-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        line-height: 1;
+      }
 
-.modal-close:hover {
-    color: #ff4d4d;
-    transform: rotate(90deg);
-}
+      .modal-close:hover {
+        color: #ff4d4d;
+        transform: rotate(90deg);
+      }
 
-#modalCaption {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px 24px;
-    border-radius: 30px;
-    backdrop-filter: blur(4px);
-}
+      #modalCaption {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 1.2rem;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px 24px;
+        border-radius: 30px;
+        backdrop-filter: blur(4px);
+      }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
-/* Адаптив для модалки */
-@media (max-width: 700px) {
-    .modal-close {
-        top: 20px;
-        right: 20px;
-        font-size: 36px;
-    }
-    #modalCaption {
-        font-size: 0.9rem;
-        padding: 6px 16px;
-        bottom: 20px;
-    }
-}
+      /* Адаптив для модалки */
+      @media (max-width: 700px) {
+        .modal-close {
+          top: 20px;
+          right: 20px;
+          font-size: 36px;
+        }
+        #modalCaption {
+          font-size: 0.9rem;
+          padding: 6px 16px;
+          bottom: 20px;
+        }
+      }
     </style>
-
   </head>
   <body>
     <!-- ===== ШАПКА ===== -->
@@ -766,51 +771,58 @@
       </p>
     </footer>
     <!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА КАРТИНОК ===== -->
-<div id="imageModal" class="modal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage" src="" alt="Увеличенное изображение">
-    <div id="modalCaption"></div>
-</div>
-<script>
-    // Получаем элементы модального окна
-    var modal = document.getElementById('imageModal');
-    var modalImg = document.getElementById('modalImage');
-    var caption = document.getElementById('modalCaption');
-    var closeBtn = document.getElementsByClassName('modal-close')[0];
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img
+        class="modal-content"
+        id="modalImage"
+        src=""
+        alt="Увеличенное изображение"
+      />
+      <div id="modalCaption"></div>
+    </div>
+    <script>
+      // Получаем элементы модального окна
+      var modal = document.getElementById("imageModal");
+      var modalImg = document.getElementById("modalImage");
+      var caption = document.getElementById("modalCaption");
+      var closeBtn = document.getElementsByClassName("modal-close")[0];
 
-    // Клик по любой картинке в галерее (используем делегирование)
-    document.querySelector('.gallery').addEventListener('click', function(e) {
-        var img = e.target.closest('img');
-        if (!img) return; // если кликнули не по картинке
+      // Клик по любой картинке в галерее (используем делегирование)
+      document
+        .querySelector(".gallery")
+        .addEventListener("click", function (e) {
+          var img = e.target.closest("img");
+          if (!img) return; // если кликнули не по картинке
 
-        // Открываем модальное окно
-        modal.style.display = 'flex';
-        modalImg.src = img.src;
-        caption.textContent = img.alt || 'Скриншот';
-        document.body.style.overflow = 'hidden'; // блокируем скролл
-    });
+          // Открываем модальное окно
+          modal.style.display = "flex";
+          modalImg.src = img.src;
+          caption.textContent = img.alt || "Скриншот";
+          document.body.style.overflow = "hidden"; // блокируем скролл
+        });
 
-    // Закрытие по кнопке ✕
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
+      // Закрытие по кнопке ✕
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
 
-    // Закрытие по клику на фон (сам модальный контейнер)
-    modal.addEventListener('click', function(e) {
+      // Закрытие по клику на фон (сам модальный контейнер)
+      modal.addEventListener("click", function (e) {
         if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
         }
-    });
+      });
 
-    // Закрытие по клавише ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+      // Закрытие по клавише ESC
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
         }
-    });
-</script>
+      });
+    </script>
   </body>
 </html>
