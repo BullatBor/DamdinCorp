@@ -4,450 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roblox Фан-сайт</title>
-    <style>
-      /* ===== Глобальные стили ===== */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: #f0f2f5;
-        color: #222;
-        line-height: 1.6;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      /* ===== Шапка ===== */
-      header {
-        background: linear-gradient(135deg, #1a1a2e, #16213e);
-        color: white;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        border-bottom: 4px solid #ff4d4d;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      .logo {
-        font-size: 2rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logo span {
-        background: #ff4d4d;
-        padding: 0 12px;
-        border-radius: 30px;
-        font-size: 1.2rem;
-        color: #fff;
-      }
-
-      nav a {
-        color: #ddd;
-        margin-left: 1.5rem;
-        font-weight: 600;
-        transition: 0.3s;
-        padding: 0.5rem 1rem;
-        border-radius: 30px;
-      }
-
-      nav a:hover {
-        background: #ff4d4d;
-        color: #fff;
-        transform: scale(1.05);
-      }
-
-      /* ===== Герой ===== */
-      .hero {
-        background: #1a1a2e;
-        color: white;
-        text-align: center;
-        padding: 4rem 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "🚀";
-        font-size: 8rem;
-        position: absolute;
-        left: 5%;
-        top: 10%;
-        opacity: 0.1;
-        transform: rotate(-20deg);
-      }
-
-      .hero::after {
-        content: "🎮";
-        font-size: 6rem;
-        position: absolute;
-        right: 5%;
-        bottom: 10%;
-        opacity: 0.1;
-        transform: rotate(15deg);
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 900;
-        margin-bottom: 0.5rem;
-        text-shadow: 0 4px 0 #ff4d4d;
-      }
-
-      .hero p {
-        font-size: 1.3rem;
-        max-width: 600px;
-        margin: 0 auto 1.5rem;
-        opacity: 0.9;
-      }
-
-      .btn {
-        display: inline-block;
-        background: #ff4d4d;
-        color: #fff;
-        padding: 0.8rem 2.5rem;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 1.2rem;
-        transition: 0.3s;
-        box-shadow: 0 8px 0 #b30000;
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 0 #b30000;
-        background: #ff6666;
-      }
-
-      .btn:active {
-        transform: translateY(4px);
-        box-shadow: 0 4px 0 #b30000;
-      }
-
-      /* ===== Секции ===== */
-      section {
-        padding: 3rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        border-left: 8px solid #ff4d4d;
-        padding-left: 1rem;
-        color: #1a1a2e;
-      }
-
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .card {
-        background: white;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        transition: 0.3s;
-        border: 2px solid transparent;
-        text-align: center;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-        border-color: #ff4d4d;
-        box-shadow: 0 16px 40px rgba(255, 77, 77, 0.2);
-      }
-
-      .card .icon {
-        font-size: 4rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: #1a1a2e;
-      }
-
-      .card p {
-        color: #555;
-        font-size: 0.95rem;
-      }
-
-      .card a {
-        display: inline-block;
-        margin-top: 1rem;
-        background: #1a1a2e;
-        color: white;
-        padding: 0.5rem 1.5rem;
-        border-radius: 30px;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .card a:hover {
-        background: #ff4d4d;
-      }
-
-      /* ===== Новости ===== */
-      .news-list {
-        list-style: none;
-        background: white;
-        border-radius: 20px;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      }
-
-      .news-list li {
-        padding: 0.8rem 0;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .news-list li:last-child {
-        border-bottom: none;
-      }
-
-      .news-list .date {
-        background: #1a1a2e;
-        color: white;
-        padding: 0.2rem 0.8rem;
-        border-radius: 30px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      /* ===== Галерея ===== */
-      .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-      }
-
-      /* ===== Исправление для картинок в галерее ===== */
-      .gallery-item {
-        overflow: hidden; /* чтобы ничего не вылезало за рамки */
-        border-radius: 20px; /* закругление уже есть, но повторим для чёткости */
-      }
-
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* картинка заполнит контейнер без искажений */
-        display: block; /* убирает лишний отступ снизу */
-      }
-
-      .gallery-item:hover {
-        transform: scale(1.03) rotate(1deg);
-        background: #ff4d4d;
-      }
-
-      /* ===== Футер ===== */
-      footer {
-        background: #1a1a2e;
-        color: #aaa;
-        text-align: center;
-        padding: 2rem 1rem;
-        margin-top: 2rem;
-        border-top: 4px solid #ff4d4d;
-      }
-
-      footer a {
-        color: #ff4d4d;
-        font-weight: 600;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      /* ===== Отзывы ===== */
-      #reviews {
-        background: #f8f9fc;
-        border-radius: 30px 30px 0 0;
-        padding: 3rem 2rem;
-        margin-top: 1rem;
-      }
-
-      .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.8rem;
-      }
-
-      .review-card {
-        background: white;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        transition: 0.3s;
-        border: 1px solid #e9ecef;
-      }
-
-      .review-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 28px rgba(255, 77, 77, 0.15);
-        border-color: #ff4d4d;
-      }
-
-      .review-header {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        margin-bottom: 0.8rem;
-        flex-wrap: wrap;
-      }
-
-      .avatar {
-        font-size: 2.4rem;
-        line-height: 1;
-      }
-
-      .review-name {
-        font-weight: 700;
-        color: #1a1a2e;
-        font-size: 1.1rem;
-      }
-
-      .review-date {
-        font-size: 0.8rem;
-        color: #888;
-      }
-
-      .review-stars {
-        margin-left: auto;
-        color: #f5b342;
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-      }
-
-      .review-text {
-        color: #444;
-        font-size: 0.98rem;
-        line-height: 1.5;
-        margin-top: 0.2rem;
-      }
-
-      /* ===== Адаптивность ===== */
-      @media (max-width: 700px) {
-        header {
-          flex-direction: column;
-          gap: 1rem;
-          text-align: center;
-        }
-        nav a {
-          margin: 0 0.5rem;
-          display: inline-block;
-        }
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-        .hero p {
-          font-size: 1rem;
-        }
-        h2 {
-          font-size: 2rem;
-        }
-      }
-      /* ===== Модальное окно ===== */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.92);
-        align-items: center;
-        justify-content: center;
-        animation: fadeIn 0.3s ease;
-      }
-
-      .modal-content {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 16px;
-        box-shadow: 0 0 40px rgba(255, 77, 77, 0.3);
-        display: block;
-        object-fit: contain;
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 30px;
-        right: 40px;
-        color: #fff;
-        font-size: 50px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: 0.2s;
-        line-height: 1;
-      }
-
-      .modal-close:hover {
-        color: #ff4d4d;
-        transform: rotate(90deg);
-      }
-
-      #modalCaption {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #fff;
-        font-size: 1.2rem;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 10px 24px;
-        border-radius: 30px;
-        backdrop-filter: blur(4px);
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      /* Адаптив для модалки */
-      @media (max-width: 700px) {
-        .modal-close {
-          top: 20px;
-          right: 20px;
-          font-size: 36px;
-        }
-        #modalCaption {
-          font-size: 0.9rem;
-          padding: 6px 16px;
-          bottom: 20px;
-        }
-      }
-    </style>
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- ===== ШАПКА ===== -->
@@ -465,11 +23,8 @@
 
     <!-- ===== ГЕРОЙ ===== -->
     <section class="hero">
-      <h1>Добро пожаловать, фанат!</h1>
-      <p>
-        Твой личный уголок для всего, что связано с Roblox. Игры, новости,
-        общение и вдохновение!
-      </p>
+      <h1>Асаламу алейкум братан!</h1>
+      <p>-тут может быть ваша реклама-</p>
       <a
         href="https://www.roblox.com"
         target="_blank"
@@ -481,17 +36,8 @@
 
     <!-- ===== О НАС ===== -->
     <section id="about">
-      <h2>👋 Кто я?</h2>
-      <p
-        style="
-          font-size: 1.2rem;
-          max-width: 800px;
-          background: white;
-          padding: 1.5rem 2rem;
-          border-radius: 20px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        "
-      >
+      <h2>Кто я?</h2>
+      <p class="about-box">
         Дамдин — геймер, танкист и толстый. Любит Roblox, буузы и KFC. В бою —
         медленный, еду - всю съедает. С ним не соскучишься: либо уходишь домой,
         либо даёшь мне буузы. 😄
@@ -500,7 +46,8 @@
 
     <!-- ===== ЛЮБИМЫЕ ИГРЫ (заменены на твои) ===== -->
     <section id="games">
-      <h2>🎯 Топ-4 игры</h2>
+      <h2> Топ игры</h2>
+      <p class="section-hint">топ-4 игры, дамдин. це цифра такая.</p>
       <div class="card-grid">
         <!-- 1. Dueling Grounds -->
         <div class="card">
@@ -562,27 +109,24 @@
       <h2>📰 Последние новости</h2>
       <ul class="news-list">
         <li>
-          <span class="date">27 июня</span> Выход нового обновления в Dueling
-          Grounds — добавлен режим королевской битвы!
+          <span class="date">27 июня</span> Дамдин покушал три раза за день.
         </li>
         <li>
-          <span class="date">25 июня</span> Roblox объявил о летнем ивенте с
-          бесплатными предметами.
+          <span class="date">26 июня, ночь</span> Посрал ночью.
         </li>
         <li>
           <span class="date">22 июня</span> В Multicrew Tank Combat появились
           новые карты и танки.
         </li>
         <li>
-          <span class="date">20 июня</span> Разработчики Broken Dream
-          анонсировали второй сезон сюжета.
+          <span class="date">20 июня</span> Разработчик этого сайта сделал этот сайт за +- 1 час. но потратил булочку с ветчиной и сыром.
         </li>
       </ul>
     </section>
 
     <!-- ===== ГАЛЕРЕЯ ===== -->
     <section id="gallery">
-      <h2>🖼️ Скриншоты от фанатов</h2>
+      <h2>🖼️ Скриншоты от дамдина</h2>
       <div class="gallery">
         <div class="gallery-item">
           <img
@@ -594,35 +138,35 @@
         <div class="gallery-item">
           <img
             class=""
-            src="https://tr.rbxcdn.com/180DAY-9b030fc8ed119bd354ba9e9aab7adaa2/768/432/Image/Webp/noFilter"
+            src="https://tr.rbxcdn.com/180DAY-4a53e7b82d74694f9a0fccf4b20ada51/768/432/Image/Webp/noFilter"
             alt=""
           />
         </div>
         <div class="gallery-item">
           <img
             class=""
-            src="https://tr.rbxcdn.com/180DAY-9b030fc8ed119bd354ba9e9aab7adaa2/768/432/Image/Webp/noFilter"
+            src="https://tr.rbxcdn.com/180DAY-aec674168f3255fd603db27303302c0b/768/432/Image/Webp/noFilter"
             alt=""
           />
         </div>
         <div class="gallery-item">
           <img
             class=""
-            src="https://tr.rbxcdn.com/180DAY-9b030fc8ed119bd354ba9e9aab7adaa2/768/432/Image/Webp/noFilter"
+            src="https://tr.rbxcdn.com/180DAY-a5e6d696f37e44a39f6e99c667b3da56/768/432/Image/Webp/noFilter"
             alt=""
           />
         </div>
         <div class="gallery-item">
           <img
             class=""
-            src="https://tr.rbxcdn.com/180DAY-9b030fc8ed119bd354ba9e9aab7adaa2/768/432/Image/Webp/noFilter"
+            src="https://tr.rbxcdn.com/180DAY-f78fff682f82dcae2236c0bf2fcc61fd/768/432/Image/Webp/noFilter"
             alt=""
           />
         </div>
         <div class="gallery-item">
           <img
             class=""
-            src="https://tr.rbxcdn.com/180DAY-9b030fc8ed119bd354ba9e9aab7adaa2/768/432/Image/Webp/noFilter"
+            src="https://tr.rbxcdn.com/180DAY-b8a1ecc76cbc93c048781534047ae797/768/432/Image/Webp/noFilter"
             alt=""
           />
         </div>
@@ -630,21 +174,20 @@
     </section>
     <!-- ===== ОТЗЫВЫ ===== -->
     <section id="reviews">
-      <h2>💬 Отзывы наших фанатов</h2>
+      <h2>💬 Отзывы (не феiк!!)</h2>
       <div class="reviews-grid">
         <!-- Отзыв 1 -->
         <div class="review-card">
           <div class="review-header">
             <span class="avatar">👾</span>
             <div>
-              <div class="review-name">Михаил_Игрок</div>
+              <div class="review-name">Serega_Perez_Checo</div>
               <div class="review-date">12 июня 2026</div>
             </div>
             <div class="review-stars">★★★★★</div>
           </div>
           <p class="review-text">
-            Лучший сайт про Roblox! Нашёл много новых игр, теперь играю с
-            друзьями каждый день. Спасибо!
+            Лучший сайт про Roblox, теперь я понял свою жизнь..надо сваливать из формулы 1 и идти в ютуберы.
           </p>
         </div>
 
@@ -653,14 +196,14 @@
           <div class="review-header">
             <span class="avatar">🎮</span>
             <div>
-              <div class="review-name">Liza_Blox</div>
+              <div class="review-name">K_Antaneli</div>
               <div class="review-date">10 июня 2026</div>
             </div>
             <div class="review-stars">★★★★☆</div>
           </div>
           <p class="review-text">
-            Классный дизайн и удобно всё разложено. Единственное – не хватает
-            раздела с моими любимыми скринами, но в остальном топ!
+            э что с донатом пацаны...
+            
           </p>
         </div>
 
@@ -669,14 +212,13 @@
           <div class="review-header">
             <span class="avatar">🚀</span>
             <div>
-              <div class="review-name">Den4ik_Pro</div>
+              <div class="review-name">Lewis_Sramilton2021</div>
               <div class="review-date">8 июня 2026</div>
             </div>
             <div class="review-stars">★★★★★</div>
           </div>
           <p class="review-text">
-            Очень круто, что есть прямые ссылки на игры. Переход в новую вкладку
-            – супер! Буду следить за обновлениями.
+            Bravo bravo si raggazi!!
           </p>
         </div>
 
@@ -685,14 +227,13 @@
           <div class="review-header">
             <span class="avatar">⚡</span>
             <div>
-              <div class="review-name">Alex_Racer</div>
+              <div class="review-name">Lando_NorrisG1</div>
               <div class="review-date">5 июня 2026</div>
             </div>
             <div class="review-stars">★★★★☆</div>
           </div>
           <p class="review-text">
-            Отличный сайт для фанатов! Особенно понравились новости – всегда
-            свежие. Ребята, вы лучшие!
+            Нормалда сайт, рУзкий брад
           </p>
         </div>
 
@@ -701,8 +242,8 @@
           <div class="review-header">
             <span class="avatar">🐉</span>
             <div>
-              <div class="review-name">DragonSlayer</div>
-              <div class="review-date">3 июня 2026</div>
+              <div class="review-name">Kakowski_Maxim</div>
+              <div class="review-date">32 июня 1941</div>
             </div>
             <div class="review-stars">★★★★★</div>
           </div>
@@ -744,6 +285,107 @@
         Неофициальный сайт. Все права на контент принадлежат Roblox Corporation.
       </p>
     </footer>
+    <div class="fab-stack">
+      <button
+        type="button"
+        class="fab-btn fab-btn--donate"
+        id="donateToggle"
+        aria-label="Поддержать материально"
+        title="Поддержать брата"
+      >
+        <span class="fab-btn__icon">💰</span>
+      </button>
+      <button
+        type="button"
+        class="fab-btn fab-btn--theme"
+        id="themeToggle"
+        aria-label="Переключить тему"
+        title="Сменить тему"
+      >
+        <span class="fab-btn__icon" id="themeIcon">🌙</span>
+      </button>
+    </div>
+    <!-- ===== МОДАЛЬНОЕ ОКНО ДОНАТА ===== -->
+    <div id="donateModal" class="modal donate-modal">
+      <div class="donate-modal__box">
+        <button
+          type="button"
+          class="donate-modal__close"
+          id="donateModalClose"
+          aria-label="Закрыть"
+        >
+          &times;
+        </button>
+        <h3 class="donate-modal__title">💰 Поддержать брата</h3>
+        <p class="donate-modal__text">
+          Кинь робуксы — поможешь проекту жить дальше. Выбери сумму или введи
+          свою.
+        </p>
+        <form id="donateForm">
+          <div class="donate-amounts">
+            <button type="button" class="donate-amount" data-amount="50">
+              50 R$
+            </button>
+            <button type="button" class="donate-amount" data-amount="100">
+              100 R$
+            </button>
+            <button type="button" class="donate-amount" data-amount="250">
+              250 R$
+            </button>
+            <button type="button" class="donate-amount" data-amount="500">
+              500 R$
+            </button>
+            <button type="button" class="donate-amount" data-amount="1000">
+              1000 R$
+            </button>
+            <button type="button" class="donate-amount" data-amount="2500">
+              2500 R$
+            </button>
+          </div>
+          <label class="donate-field">
+            <span>Своя сумма (Robux)</span>
+            <input
+              type="number"
+              id="donateCustomAmount"
+              min="1"
+              placeholder="Например, 150"
+            />
+          </label>
+          <button type="submit" class="btn donate-submit">Отправить</button>
+          <p class="donate-error" id="donateError" hidden>
+            Укажи сумму больше 0 робуксов
+          </p>
+        </form>
+      </div>
+    </div>
+    <!-- ===== ОТВЕТ НА ДОНАТ ===== -->
+    <div id="donateRejectModal" class="modal donate-reject-modal">
+      <div class="donate-reject__box">
+        <div class="donate-reject__emoji">
+          <img
+            src="https://images.meme-arsenal.com/32c93fc17810ec8f41d9c4acfcda5f26.jpg"
+            alt="Смеющийся кот"
+            style="
+              width: 100%;
+              max-width: 200px;
+              border-radius: 16px;
+              display: block;
+              margin: 0 auto;
+            "
+          />
+        </div>
+        <p class="donate-reject__text">
+          Спасибо, но нет. Мне твои грошi не усралiся
+        </p>
+        <button
+          type="button"
+          class="btn donate-reject__btn"
+          id="donateRejectClose"
+        >
+          Ладно, брат...
+        </button>
+      </div>
+    </div>
     <!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА КАРТИНОК ===== -->
     <div id="imageModal" class="modal">
       <span class="modal-close">&times;</span>
@@ -755,48 +397,6 @@
       />
       <div id="modalCaption"></div>
     </div>
-    <script>
-      // Получаем элементы модального окна
-      var modal = document.getElementById("imageModal");
-      var modalImg = document.getElementById("modalImage");
-      var caption = document.getElementById("modalCaption");
-      var closeBtn = document.getElementsByClassName("modal-close")[0];
-
-      // Клик по любой картинке в галерее (используем делегирование)
-      document
-        .querySelector(".gallery")
-        .addEventListener("click", function (e) {
-          var img = e.target.closest("img");
-          if (!img) return; // если кликнули не по картинке
-
-          // Открываем модальное окно
-          modal.style.display = "flex";
-          modalImg.src = img.src;
-          caption.textContent = img.alt || "Скриншот";
-          document.body.style.overflow = "hidden"; // блокируем скролл
-        });
-
-      // Закрытие по кнопке ✕
-      closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      });
-
-      // Закрытие по клику на фон (сам модальный контейнер)
-      modal.addEventListener("click", function (e) {
-        if (e.target === modal) {
-          modal.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      });
-
-      // Закрытие по клавише ESC
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.style.display === "flex") {
-          modal.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
